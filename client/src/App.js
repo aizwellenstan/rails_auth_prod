@@ -2,10 +2,30 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import LoginPage from './LoginPage'
+import HomePage from './HomePage'
 
 class App extends React.Component {
+  state = {
+    page: 'login'
+  }
+
+  redirect = (page) => {
+    this.setState({ page: page })
+  }
+
+  componentDidMount() {
+    if (localStorage.token) {
+      this.redirect('home')
+    }
+  }
+
   render() {
-    return <LoginPage />
+    switch(this.state.page) {
+      case 'login':
+        return <LoginPage redirect = { this.redirect } />
+      case 'home':
+        return <HomePage />
+    }
   }
 }
 

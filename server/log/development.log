@@ -126,3 +126,11 @@ Processing by AuthController#login as JSON
 Completed 200 OK in 228ms (Views: 0.2ms | ActiveRecord: 10.0ms)
 
 
+Started POST "/login" for ::1 at 2019-11-04 01:52:07 +0900
+Processing by AuthController#login as JSON
+  Parameters: {"username"=>"nadi", "password"=>"[FILTERED]", "auth"=>{"username"=>"nadi", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nadi"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3
+Completed 200 OK in 209ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+

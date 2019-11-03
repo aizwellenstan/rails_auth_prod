@@ -19,6 +19,8 @@ class LoginPage extends React.Component {
             .then(res => res.json())
             .then(parsedResponse => {
                 console.log(parsedResponse)
+                localStorage.setItem('token', parsedResponse.token)
+                this.props.redirect('home')
             })
     }
 
